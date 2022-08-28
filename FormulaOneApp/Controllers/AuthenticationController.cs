@@ -75,10 +75,7 @@ public class AuthenticationController : ControllerBase
 
             return BadRequest(new AuthResult()
             {
-                Errors = new List<string>()
-                {
-                    "Server error"
-                },
+                Errors = isCreated.Errors.Select(x=>x.Description).ToList(),
                 Result = false
             });
         }
